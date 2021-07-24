@@ -1,25 +1,16 @@
 <?php
 
+use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/',                 [FrontendController::class, 'index'])->name('index');
+Route::get('/profile',          [FrontendController::class, 'profile'])->name('profile');
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/admin', function () {
-    return view('backend.dashboard');
-});
+Route::get('/admin',            [AdminController::class, 'dashboard'])->name('admin.index');
+Route::get('/admin/maps',       [AdminController::class, 'maps'])->name('admin.maps');
+Route::get('/admin/settings',   [AdminController::class, 'settings'])->name('admin.settings');
+Route::get('/admin/tables',     [AdminController::class, 'tables'])->name('admin.tables');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
