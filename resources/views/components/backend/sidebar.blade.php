@@ -138,6 +138,30 @@
             <!-- Navigation -->
 
             <ul class="flex flex-col list-none md:flex-col md:min-w-full">
+                @role(['admin'])
+                    @foreach ($admin_side_menu as $menu)
+                        <li class="items-center">
+                            <a href="{{ route('admin.' . $menu->as) }}" class="block py-3 text-xs font-bold uppercase hover:text-pink-600 {{ Str::contains(request()->path(), $menu->module) ? 'text-pink-500' : 'text-blueGray-700'}}">
+                                <i class="mr-2 text-sm opacity-75 {{ $menu->icon != null ? $menu->icon : 'fas fa-tv' }}"></i>
+                                {{ $menu->display_name }}
+                            </a>
+                        </li>
+                    @endforeach
+                @endrole()
+
+                @role(['supervisor'])
+                    @foreach ($admin_side_menu as $menu)
+                        @permission($menu->name)
+                            <li class="items-center">
+                                <a href="{{ route('admin.' . $menu->as) }}" class="block py-3 text-xs font-bold uppercase hover:text-pink-600 {{ Str::contains(request()->path(), $menu->module) ? 'text-pink-500' : 'text-blueGray-700'}}">
+                                    <i class="mr-2 text-sm opacity-75 {{ $menu->icon != null ? $menu->icon : 'fas fa-tv' }}"></i>
+                                    {{ $menu->display_name }}
+                                </a>
+                            </li>
+                        @endpermission()
+                    @endforeach
+                @endrole()
+
                 <li class="items-center">
                 <a
                     href="{{ route('admin.index') }}"

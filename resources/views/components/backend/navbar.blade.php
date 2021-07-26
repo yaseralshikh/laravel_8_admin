@@ -27,7 +27,7 @@
         >
             <a
             class="block text-blueGray-500"
-            href="#"
+            href="javascript:void(0);"
             onclick="openDropdown(event,'user-dropdown')"
             >
             <div class="flex items-center">
@@ -61,10 +61,13 @@
                 class="h-0 my-2 border border-solid border-blueGray-100"
             ></div>
             <a
-                href="{{ route('admin.index')}}"
-                class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700"
-                >Seprated link</a
-            >
+                href="{{ route('logout')}}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                class="block w-full px-4 py-2 text-sm font-normal bg-transparent whitespace-nowrap text-blueGray-700">Logout</a>
+                <!-- Authentication -->
+                <form method="POST" action="{{ route('logout') }}" id="logout-form" class="hidden">
+                    @csrf
+                </form>
             </div>
         </ul>
         </div>

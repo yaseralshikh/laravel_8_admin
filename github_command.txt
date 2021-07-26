@@ -6,7 +6,7 @@ git branch Dashboard
 git checkout Dashboard
 git branch -d checkout
 
-git statue
+git status
 git add .
 git commit -m "Constructed index Dashboard"
 git push -u origin Laratrust
