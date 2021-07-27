@@ -8,12 +8,14 @@
             >
             <i class="fas fa-bars"></i>
             </button>
-            <a
-            class="inline-block p-4 px-0 mr-0 text-sm font-bold text-left uppercase md:block md:pb-2 text-blueGray-600 whitespace-nowrap"
-            href="{{ route('admin.index') }}"
-            >
-            Notus JS
-            </a>
+            <div class="flex flex-wrap content-center">
+                <a
+                class="inline-block p-4 px-0 mr-0 text-sm font-bold text-left uppercase md:block md:pb-2 text-blueGray-600 whitespace-nowrap"
+                href="{{ route('admin.index') }}">
+                    Notus JS
+                </a>
+                <span class="inline-flex items-center justify-center w-12 h-12 ml-6 text-sm text-white rounded-full bg-blueGray-200"><img alt="..." class="w-full align-middle border-none rounded-full shadow-lg" src="{{ asset('theme/assets/img/logo.png') }}"></span>
+            </div>
             <ul class="flex flex-wrap items-center list-none md:hidden">
             <li class="relative inline-block">
                 <a
